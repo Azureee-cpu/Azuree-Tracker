@@ -1,5 +1,15 @@
 import requests
 import time
+def main():
+    last_profile = None
+    last_games = set()
+    while True:
+        profile = get_profile()
+        games = get_games()
+        print("Profile data:", profile)
+        print("Games data:", games)
+        games_set = set(game.get("GameName", "") for game in games)
+        # ... rest of your code ...
 
 RECNET_PROFILE_URL = "https://api.rec.net/api/users/{user_id}"
 RECNET_GAMES_URL = "https://api.rec.net/api/users/{user_id}/games"
